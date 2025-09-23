@@ -1,1 +1,6 @@
-<h1>{{ $user->name }}</h1>
+@extends('layouts.admin')
+@section('title', 'Homepage')
+
+@section('content')
+    <h1>Homepage</h1>
+@endsection
