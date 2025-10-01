@@ -21,7 +21,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -29,7 +29,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newProject = new Project;
+        $newProject->title = $data['title'];
+        $newProject->description = $data['description'];
+        $newProject->client = $data['client'];
+        $newProject->start_date = $data['startDate'];
+        $newProject->end_date = $data['endDate'];
+        $newProject->save();
+        return redirect()->route('project.show', $newProject);
     }
 
     /**
