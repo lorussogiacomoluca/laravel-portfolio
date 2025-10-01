@@ -9,7 +9,7 @@
     @vite(['resources/sass/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body data-bs-theme="dark">
     <h1>@yield('title')</h1>
     <div class="container">
         @yield('content')
