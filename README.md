@@ -34,3 +34,28 @@ L'obiettivo di oggi è quello di iniziare a preparare il **back-office** per pot
 3. 🔍 Soffermiamoci per oggi solo sulla logica delle azioni di **index** e **show**  
 4. 📑 Creiamo le **rotte** per i nostri progetti e prepariamo un layout per mostrare i nostri progetti in **tabella** nella rotta **index**  
 5. 🎨 Inventiamo anche uno **stile** per la pagina di **show**, che dovrà mostrare un singolo progetto  
+
+---
+
+## 📌 PARTE 3:  
+### 📝 Descrizione  
+**Nome repo:** `laravel-portfolio`  
+
+Oggi termineremo le operazioni **CRUD** sui progetti, dando la possibilità all'utente di creare nuovi progetti, modificare quelli esistenti o eliminarli. 🖋️🗑️  
+
+---
+
+### 🔧 Svolgimento  
+Procediamo al completamento delle operazioni **CRUD** sul modello **Project**:  
+
+1. 🌐 Prepariamo le **rotte** per le pagine di creazione e modifica dei progetti  
+2. 📝 All'interno delle pagine, prepariamo i rispettivi **form**  
+3. 📂 Nella pagina di dettaglio del progetto, mostriamo la **tipologia** a cui il progetto appartiene (Web Design, Graphic Design, Back End...)  
+4. ⚙️ Nel controller, inseriamo la logica per il **salvataggio**, la **modifica** e l’**eliminazione** di un progetto  
+5. 📊 Nella tabella della pagina **index**, inseriamo i **pulsanti** su ciascuna riga per eliminare o modificare il singolo progetto. Inoltre, possiamo avere un singolo tasto in cima che porti alla pagina di creazione del progetto  
+
+---
+
+### 🎁 Bonus  
+Proviamo ad aggiungere un **controllo di conferma**: quando l'utente clicca sul pulsante "delete", chiediamo conferma della cancellazione prima di eliminare l'elemento.  
+Questa operazione può essere fatta con **JavaScript** oppure usando i componenti di **Bootstrap**. ⚡
