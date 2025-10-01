@@ -31,6 +31,24 @@
                     value="{{ old('endDate', $project->end_date) }}" required />
                 <label for="endDate">End Date</label>
             </div>
+
+            <!-- Nuovo campo Category -->
+            <div class="form-floating mb-3">
+                <select class="form-select" id="category" name="category" required>
+                    <option value="" disabled>Choose category</option>
+                    <option value="Web" {{ old('category', $project->category) == 'Web' ? 'selected' : '' }}>Web</option>
+                    <option value="Mobile" {{ old('category', $project->category) == 'Mobile' ? 'selected' : '' }}>Mobile
+                    </option>
+                    <option value="Design" {{ old('category', $project->category) == 'Design' ? 'selected' : '' }}>Design
+                    </option>
+                    <option value="Marketing" {{ old('category', $project->category) == 'Marketing' ? 'selected' : '' }}>
+                        Marketing</option>
+                    <option value="Research" {{ old('category', $project->category) == 'Research' ? 'selected' : '' }}>
+                        Research</option>
+                </select>
+                <label for="category">Category</label>
+            </div>
+
             <div class="d-grid">
                 <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
             </div>

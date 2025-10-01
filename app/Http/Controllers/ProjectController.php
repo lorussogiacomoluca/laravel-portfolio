@@ -34,6 +34,7 @@ class ProjectController extends Controller
         $newProject->title = $data['title'];
         $newProject->description = $data['description'];
         $newProject->client = $data['client'];
+        $newProject->category = $data['category'];
         $newProject->start_date = $data['startDate'];
         $newProject->end_date = $data['endDate'];
         $newProject->save();
@@ -65,6 +66,7 @@ class ProjectController extends Controller
         $project->title = $data['title'];
         $project->description = $data['description'];
         $project->client = $data['client'];
+        $project->category = $data['category'];
         $project->start_date = $data['startDate'];
         $project->end_date = $data['endDate'];
         $project->update();
@@ -74,8 +76,9 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('project.index');
     }
 }
