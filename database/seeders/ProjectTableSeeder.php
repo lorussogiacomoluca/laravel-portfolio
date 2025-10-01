@@ -18,7 +18,7 @@ class ProjectTableSeeder extends Seeder
             $newProject = new Project;
             $startDate = $faker->dateTimeBetween('-5 years', 'now');
             $endDate = $faker->dateTimeBetween($startDate, 'now');
-            $newProject->title = $faker->words();
+            $newProject->title = $faker->sentence(3);
             $newProject->description = $faker->paragraph(2);
             $newProject->client = $faker->name();
             $newProject->start_date = $startDate;
