@@ -14,6 +14,11 @@
                     Category: <span>{{ $project->category->title }}</span>
                 @endif
 
+                @forelse ($project->technologies as $technology)
+                    <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+                @empty
+                @endforelse
+
                 <hr>
 
                 <p class="card-text mt-3">{{ $project->description }}</p>
