@@ -61,7 +61,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $categories = Category::all();
-        return view('projects.edit', compact('project', 'categories'));
+        $technologies = Technology::all();
+
+        return view('projects.edit', compact('project', 'categories', 'technologies'));
     }
 
     /**
@@ -77,6 +79,7 @@ class ProjectController extends Controller
         $project->start_date = $data['startDate'];
         $project->end_date = $data['endDate'];
         $project->update();
+        $project->technologies()->sync($data['technologies']);
         return redirect()->route('project.show', $project);
     }
 

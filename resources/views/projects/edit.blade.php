@@ -17,6 +17,19 @@
                 <label for="description">Description</label>
             </div>
             <div class="form-floating mb-3">
+                <div class="form-control mb-2 d-flex flex-wrap">
+                    @foreach ($technologies as $technology)
+                        <div class="technology me-2">
+                            <input type="checkbox" {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}
+                                name="technologies[]" value="{{ $technology->id }}" id="{{ $technology->id }}">
+                            <label for="tag-{{ $technology->id }}">
+                                {{ $technology->name }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="form-floating mb-3">
                 <input class="form-control" id="client" name="client" type="text" placeholder="client"
                     value="{{ old('client', $project->client) }}" required />
                 <label for="client">Client</label>
@@ -37,7 +50,8 @@
                 <select class="form-select" id="category" name="category_id" required>
                     <option value="" selected disabled>Choose category</option>
                     @foreach ($categories as $category)
-                        <option {{ $project->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">
+                        <option {{ $project->category_id == $category->id ? 'selected' : '' }}
+                            value="{{ $category->id }}">
                             {{ $category->title }}</option>
                     @endforeach
                 </select>
