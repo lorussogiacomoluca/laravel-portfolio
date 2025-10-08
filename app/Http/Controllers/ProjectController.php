@@ -43,7 +43,9 @@ class ProjectController extends Controller
         $newProject->start_date = $data['startDate'];
         $newProject->end_date = $data['endDate'];
         $newProject->save();
-        $newProject->technologies()->attach($data['technologies']);
+        if ($request->has('technologies')) {
+            $newProject->technologies()->attach($data['technologies']);
+        }
         return redirect()->route('project.show', $newProject);
     }
 
@@ -79,7 +81,11 @@ class ProjectController extends Controller
         $project->start_date = $data['startDate'];
         $project->end_date = $data['endDate'];
         $project->update();
-        $project->technologies()->sync($data['technologies']);
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->detach();
+        }
         return redirect()->route('project.show', $project);
     }
 
