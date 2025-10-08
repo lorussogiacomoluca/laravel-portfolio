@@ -30,13 +30,11 @@
 
             <!-- Nuovo campo Category -->
             <div class="form-floating mb-3">
-                <select class="form-select" id="category" name="category" required>
+                <select class="form-select" id="category" name="category_id" required>
                     <option value="" selected disabled>Choose category</option>
-                    <option value="Web">Web</option>
-                    <option value="Mobile">Mobile</option>
-                    <option value="Design">Design</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Research">Research</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
                 </select>
                 <label for="category">Category</label>
             </div>
