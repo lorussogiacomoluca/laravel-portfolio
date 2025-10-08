@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Technology;
+use Illuminate\Container\Attributes\Tag;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -23,7 +25,8 @@ class ProjectController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('projects.create', compact('categories'));
+        $technologies = Technology::all();
+        return view('projects.create', compact('categories', 'technologies'));
     }
 
     /**
@@ -40,6 +43,7 @@ class ProjectController extends Controller
         $newProject->start_date = $data['startDate'];
         $newProject->end_date = $data['endDate'];
         $newProject->save();
+        $newProject->technologies()->attach($data['technologies']);
         return redirect()->route('project.show', $newProject);
     }
 

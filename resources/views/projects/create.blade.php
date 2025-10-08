@@ -10,6 +10,19 @@
                 <label for="title">Title</label>
             </div>
             <div class="form-floating mb-3">
+                <div class="form-control mb-2 d-flex flex-wrap">
+                    @foreach ($technologies as $technology)
+                        <div class="technology me-2">
+                            <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                                id="{{ $technology->id }}">
+                            <label for="tag-{{ $technology->id }}">
+                                {{ $technology->name }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="form-floating mb-3">
                 <textarea class="form-control" id="description" name="description" placeholder="description" style="height: 10rem;"
                     required></textarea>
                 <label for="description">Description</label>
