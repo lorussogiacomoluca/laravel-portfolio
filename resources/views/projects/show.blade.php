@@ -11,8 +11,10 @@
                 <h5 class="card-subtitle mb-2 text-muted">Cliente: {{ $project->client }}</h5>
 
                 @if ($project->category)
-                    <span class="badge bg-info text-dark mb-3">{{ $project->category }}</span>
+                    Category: <span>{{ $project->category->title }}</span>
                 @endif
+
+                <hr>
 
                 <p class="card-text mt-3">{{ $project->description }}</p>
 
