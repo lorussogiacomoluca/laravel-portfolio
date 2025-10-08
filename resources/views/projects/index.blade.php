@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{ $project->title }}</td>
                             <td>{{ $project->client }}</td>
-                            <td>{{ $project->category ?? '-' }}</td>
+                            <td>{{ $project->category->title ?? '-' }}</td>
                             <td>{{ $project->start_date }}</td>
                             <td>{{ $project->end_date }}</td>
                             <td>
