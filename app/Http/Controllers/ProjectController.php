@@ -56,7 +56,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $categories = Category::all();
+        return view('projects.edit', compact('project', 'categories'));
     }
 
     /**
@@ -68,7 +69,7 @@ class ProjectController extends Controller
         $project->title = $data['title'];
         $project->description = $data['description'];
         $project->client = $data['client'];
-        $project->category = $data['category'];
+        $project->category_id = $data['category_id'];
         $project->start_date = $data['startDate'];
         $project->end_date = $data['endDate'];
         $project->update();

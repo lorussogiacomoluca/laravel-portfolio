@@ -34,17 +34,12 @@
 
             <!-- Nuovo campo Category -->
             <div class="form-floating mb-3">
-                <select class="form-select" id="category" name="category" required>
-                    <option value="" disabled>Choose category</option>
-                    <option value="Web" {{ old('category', $project->category) == 'Web' ? 'selected' : '' }}>Web</option>
-                    <option value="Mobile" {{ old('category', $project->category) == 'Mobile' ? 'selected' : '' }}>Mobile
-                    </option>
-                    <option value="Design" {{ old('category', $project->category) == 'Design' ? 'selected' : '' }}>Design
-                    </option>
-                    <option value="Marketing" {{ old('category', $project->category) == 'Marketing' ? 'selected' : '' }}>
-                        Marketing</option>
-                    <option value="Research" {{ old('category', $project->category) == 'Research' ? 'selected' : '' }}>
-                        Research</option>
+                <select class="form-select" id="category" name="category_id" required>
+                    <option value="" selected disabled>Choose category</option>
+                    @foreach ($categories as $category)
+                        <option {{ $project->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">
+                            {{ $category->title }}</option>
+                    @endforeach
                 </select>
                 <label for="category">Category</label>
             </div>
